@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" IgnorableNamespaces="uap mp uap3">
-  <Identity Name="ff3c5843-0521-4302-b583-db711a623838" Publisher="CN=WangF" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="ff3c5843-0521-4302-b583-db711a623838" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="4b989332-6579-45a1-85ca-ba72910bb6e8" Publisher="CN=WangF" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="4b989332-6579-45a1-85ca-ba72910bb6e8" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Friday.UI</DisplayName>
+    <DisplayName>Firday.Core.UnitTests</DisplayName>
     <PublisherDisplayName>WangF</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -14,8 +14,8 @@
     <Resource Language="x-generate" />
   </Resources>
   <Applications>
-    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Friday.UI.App">
-      <uap:VisualElements DisplayName="Friday.UI" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Friday.UI" BackgroundColor="transparent">
+    <Application Id="vstest.executionengine.universal.App" Executable="$targetnametoken$.exe" EntryPoint="Firday.Core.UnitTests.App">
+      <uap:VisualElements DisplayName="Firday.Core.UnitTests" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="Firday.Core.UnitTests" BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
@@ -26,8 +26,8 @@
     <Capability Name="internetClient" />
     <uap:Capability Name="musicLibrary" />
     <uap3:Capability Name="backgroundMediaPlayback" />
-    <uap:Capability Name="picturesLibrary" />
     <uap:Capability Name="removableStorage" />
+    <uap:Capability Name="picturesLibrary" />
     <uap:Capability Name="videosLibrary" />
   </Capabilities>
 </Package>

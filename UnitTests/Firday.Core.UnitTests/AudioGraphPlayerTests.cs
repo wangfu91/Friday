@@ -5,30 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Prism.Windows.Mvvm;
+using Friday.Core;
+using Xunit;
 
-namespace Friday.Core.ViewModels
+namespace Firday.Core.UnitTests
 {
-    public class ShellPageViewModel : ViewModelBase
+    public class AudioGraphPlayerTests
     {
-        private AudioGraphPlayer _player;
-
-        public AudioGraphPlayer Player
+        [Fact(DisplayName = "AudioGraphPlayer_PalybackTest")]
+        public async Task AudioGraphPlayer_PalybackTest()
         {
-            get { return _player; }
-            set { SetProperty(ref _player, value); }
-        }
-
-        public ShellPageViewModel()
-        {
-            Init();
-        }
-
-        private async void Init()
-        {
-            Player = new AudioGraphPlayer();
             var selectedFile = await SelectPlaybackFile();
-            Player.CurrentPalyingFile = selectedFile;
+
+            var player = new AudioGraphPlayer();
+            player.CurrentPalyingFile = selectedFile;
+            await player.PlayCommand.Execute();
+            await Task.Delay(5000).ContinueWith(async _ =>
+            {
+                await player.StopCommand.Execute();
+            });
+            Assert.True(string.IsNullOrEmpty(player.Diagnostics));
         }
 
         private async Task<IStorageFile> SelectPlaybackFile()
@@ -45,6 +41,5 @@ namespace Friday.Core.ViewModels
             var file = await picker.PickSingleFileAsync();
             return file;
         }
-
     }
 }

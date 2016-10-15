@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:converters="using:Friday.UI.Converters"
     mc:Ignorable="d">
 
     <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -13,7 +14,8 @@
     </Grid>-->
 
     <Page.Resources>
-        
+        <converters:TimeSpanToSecondsConverter x:Name="TimeSpanToSecondsConverter"/>
+        <converters:TimeSpanToStringConverter x:Name="TimeSpanToStringConverter"/>
     </Page.Resources>
 
     <controls:HamburgerMenu x:Name="HambergerMenu"
@@ -48,15 +50,15 @@
                     </StackPanel>
                 </AppBarButton>
                 <Grid Grid.Column="1" x:Name="sliderGrid">
-                    <TextBlock Text="{Binding CurrentPosition}"
+                    <TextBlock Text="{Binding Player.Position, Converter={StaticResource TimeSpanToStringConverter}}"
                                HorizontalAlignment="Left" 
                                VerticalAlignment="Center" 
                                FontSize="12"/>
                     <Slider VerticalAlignment="Center" 
-                            Maximum="{Binding Player.Length}" 
-                            Value="{Binding CurrentPosition}"
+                            Maximum="{Binding Player.Duration.TotalSeconds}" 
+                            Value="{Binding Player.Position, Mode=TwoWay, Converter={StaticResource TimeSpanToSecondsConverter}}"
                             Height="54" />
-                    <TextBlock Text="{Binding Player.Length}" 
+                    <TextBlock Text="{Binding Player.Duration, Converter={StaticResource TimeSpanToStringConverter}}"
                                VerticalAlignment="Center" 
                                HorizontalAlignment="Right"
                                FontSize="12"/>
@@ -71,7 +73,7 @@
                     <AppBarButton Icon="Play"
                                   VerticalAlignment="Stretch" 
                                   IsCompact="True"
-                                  Command="{Binding PlayPauseCommand}" 
+                                  Command="{Binding Player.PlayCommand}" 
                                   Width="50"/>
                     <AppBarButton Icon="Next" 
                                   VerticalAlignment="Stretch" 
