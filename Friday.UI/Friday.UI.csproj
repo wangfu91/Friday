@@ -175,7 +175,12 @@
       <Project>{c13e7277-788e-4237-9a67-e36d408bc828}</Project>
       <Name>Friday.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Friday.Visualization\Friday.Visualization.csproj">
+      <Project>{5c42e39b-7279-4049-bd6f-89cb4d2f7f00}</Project>
+      <Name>Friday.Visualization</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
@@ -18,13 +15,13 @@ namespace Firday.Core.UnitTests
             var selectedFile = await SelectPlaybackFile();
 
             var player = new AudioGraphPlayer();
-            player.CurrentPalyingFile = selectedFile;
+            player.CurrentPlayingFile = selectedFile;
             await player.PlayCommand.Execute();
             await Task.Delay(5000).ContinueWith(async _ =>
             {
                 await player.StopCommand.Execute();
             });
-            Assert.True(string.IsNullOrEmpty(player.Diagnostics));
+            Assert.True(string.IsNullOrEmpty(player.DiagnosticsInfo));
         }
 
         private async Task<IStorageFile> SelectPlaybackFile()

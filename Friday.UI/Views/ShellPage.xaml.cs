@@ -29,6 +29,7 @@ namespace Friday.UI.Views
 
             var vm = new ShellPageViewModel();
             this.DataContext = vm;
+            this.spectrumAnalyzer.RegisterSoundPlayer(vm.Player);
         }
     }
 }

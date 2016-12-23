@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:converters="using:Friday.UI.Converters"
+    xmlns:visualization="using:Friday.Visualization"
     mc:Ignorable="d">
 
     <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -21,7 +22,7 @@
     <controls:HamburgerMenu x:Name="HambergerMenu"
         PaneBackground="LightSlateGray"
         Foreground="{ThemeResource ApplicationForegroundThemeBrush}">
-        
+
         <Grid x:Name="RootGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="32"/>
@@ -99,6 +100,24 @@
                                         Width="50" 
                                         Margin="0" />
                 </StackPanel>
+            </Grid>
+
+            <Grid x:Name="ContentsGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                  Grid.Row="1">
+
+                <visualization:SpectrumAnalyzer x:Name="spectrumAnalyzer" 
+                                  Height="600"
+                                  VerticalAlignment="Center"
+                                  MinimumFrequency="20"
+                                  MaximumFrequency="20000"
+                                  BarCount="50"
+                                  BarSpacing="2" 
+                                  PeakStyle="{x:Null}" 
+                                  IsFrequencyScaleLinear="True"
+                                          BarHeightScaling="Sqrt"
+                                  AveragePeaks="True" 
+                                  Margin="63,99,65,276"/>
+
             </Grid>
         </Grid>
     </controls:HamburgerMenu>

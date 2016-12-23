@@ -28,7 +28,7 @@ namespace Friday.Core.ViewModels
         {
             Player = new AudioGraphPlayer();
             var selectedFile = await SelectPlaybackFile();
-            Player.CurrentPalyingFile = selectedFile;
+            Player.CurrentPlayingFile = selectedFile;
         }
 
         private async Task<IStorageFile> SelectPlaybackFile()
