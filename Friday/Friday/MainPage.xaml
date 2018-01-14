@@ -4,7 +4,12 @@
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              xmlns:local="clr-namespace:Friday"
              x:Class="Friday.MainPage">
-
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS"
+                Value="0, 20, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
 
     <Grid>
 
@@ -14,7 +19,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Entry x:Name="filePathEntry" 
+        <Entry x:Name="filePathEntry"
                VerticalOptions="Center"
                Margin="30,10" />
 
@@ -32,3 +37,4 @@
     </Grid>
 
 </ContentPage>
+3
