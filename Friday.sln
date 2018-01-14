@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday.iOS", "Friday\Friday
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday.UWP", "Friday\Friday.UWP\Friday.UWP.csproj", "{08A2F884-F20E-409A-8179-4C192397679E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday", "Friday\Friday\Friday.csproj", "{FCA5C10C-D721-400B-8E26-2964C97C2D83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Friday", "Friday\Friday\Friday.csproj", "{FCA5C10C-D721-400B-8E26-2964C97C2D83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
