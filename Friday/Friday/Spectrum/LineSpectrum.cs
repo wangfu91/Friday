@@ -88,7 +88,7 @@ namespace Friday.Spectrum
 
             canvas.Clear();
 
-            canvas.Translate(0, height);
+            canvas.Translate(width/2, height);
 
             //prepare the fft result for rendering 
             SpectrumPointData[] spectrumPoints = CalculateSpectrumPoints(height * 0.4, fftBuffer);
@@ -101,7 +101,9 @@ namespace Friday.Spectrum
 
                 var xCoord = (float)(BarSpacing * (barIndex + 1) + (_barWidth * barIndex) + _barWidth / 2);
                 _greenFillPaint.StrokeWidth = (float)_barWidth;
+
                 canvas.DrawLine(xCoord, 0, xCoord, -(float)p.Value, _greenFillPaint);
+                canvas.DrawLine(-xCoord, 0, -xCoord, -(float)p.Value, _greenFillPaint);
             }
         }
 

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Friday.AudioPlayer;
 using Friday.Dsp;
 using Friday.Spectrum;
+using Plugin.FilePicker;
+using Plugin.FilePicker.Abstractions;
 using SkiaSharp.Views.Forms;
 using Xamarin.Forms;
 
@@ -39,11 +41,14 @@ namespace Friday
 
         private async Task OnLoadAsync()
         {
-            if(string.IsNullOrEmpty(filePathEntry.Text))
-                return;
+            var fileData = await CrossFilePicker.Current.PickFile();
 
-            var filePath = filePathEntry.Text.Trim('"');
-            _audioProvider.CurrentPlayingFile = filePath;
+            if (fileData == null) return;
+
+            fileNameLabel.Text = fileData.FileName;
+
+            _audioProvider.CurrentPlayingFile = fileData.FilePath;
+
             if (_audioProvider.IsPlaying)
                 _audioProvider.Stop();
 
@@ -55,7 +60,7 @@ namespace Friday
             {
                 SpectrumProvider = _audioProvider,
                 UseAverage = true,
-                BarCount = 100,
+                BarCount = 200,
                 BarSpacing = 1,
                 IsXLogScale = false,
                 ScalingStrategy = ScalingStrategy.Sqrt,
