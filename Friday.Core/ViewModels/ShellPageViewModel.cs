@@ -11,9 +11,9 @@ namespace Friday.Core.ViewModels
 {
     public class ShellPageViewModel : ViewModelBase
     {
-        private AudioGraphPlayer _player;
+        private IAudioPlayer _player;
 
-        public AudioGraphPlayer Player
+        public IAudioPlayer Player
         {
             get { return _player; }
             set { SetProperty(ref _player, value); }
@@ -27,6 +27,7 @@ namespace Friday.Core.ViewModels
         private async void Init()
         {
             Player = new AudioGraphPlayer();
+            //Player = new BassAudioPlayer();
             var selectedFile = await SelectPlaybackFile();
             Player.CurrentPlayingFile = selectedFile;
         }

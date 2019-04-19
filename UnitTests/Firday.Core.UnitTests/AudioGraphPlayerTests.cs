@@ -16,10 +16,10 @@ namespace Firday.Core.UnitTests
 
             var player = new AudioGraphPlayer();
             player.CurrentPlayingFile = selectedFile;
-            await player.PlayCommand.Execute();
-            await Task.Delay(5000).ContinueWith(async _ =>
+            player.PlayCommand.Execute(null);
+            await Task.Delay(5000).ContinueWith(_ =>
             {
-                await player.StopCommand.Execute();
+                player.StopCommand.Execute(null);
             });
             Assert.True(string.IsNullOrEmpty(player.DiagnosticsInfo));
         }

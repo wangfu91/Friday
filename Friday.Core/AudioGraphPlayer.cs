@@ -149,7 +149,7 @@ namespace Friday.Core
             timer.Start();
             timer.Tick += TimerOnTick;
 
-            PlayCommand = DelegateCommand.FromAsyncHandler(Play);
+            PlayCommand = new DelegateCommand(async ()=> await Play());
             PauseCommand = new DelegateCommand(Pause);
             StopCommand = new DelegateCommand(Stop);
         }
